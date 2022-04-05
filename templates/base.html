@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<meta charset="UTF-8">
+<head>
+    <title>Page Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.budnle.js' %}"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
+
+    {% block content %}
+        <img src="{% static 'images/esprit.bmp' %}"
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'footer.html' %}
+    {% endblock %}    
+</body>
+</html>

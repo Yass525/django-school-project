@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% block content %}
+    {% if user.is_authenticated %}
+    <p> Welcoome, {{user.username}}</p>
+    <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <p>Please log in </p>
+{% endif %}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom projet</th>
+            <th>Besoin</th>
+            <th>Createur</th>
+            <th>Etat</th>
+            <th>Delete</th>
+            <th>DeleteGeneric</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for projet in p%}
+        <tr>
+            <td scope="row">{{projet.nom_projet}}</td>
+            <td>{{projet.besoin}}</td>
+            <td>{{projet.createur}}</td>
+            <td>{{projet.est_valide}}</td>
+            <td><a href="{% url 'D' projet.id %}">Delete</a></td>
+            <td><a href="{% url 'DD' projet.id %}">DeleteGeneric</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'Ajout' %}">Ajouter un nouveau projet</a>
+    {% endblock %}
+
+    
